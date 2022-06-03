@@ -81,5 +81,36 @@ kubectl delete -f https://raw.githubusercontent.com/lacework-dev/scripts/main/k8
 Here is the script:  
 https://github.com/lacework-dev/scripts/blob/main/k8s-crypto-miner.yaml
   
+### 4. Lacework Traffic Generator & Reverse Shell
+This project is a browser based web app designed to allow a user to evaluate Lacework anomaly detection. The nodejs app, when run, generates a baseline amount of activity for Lacework to detect. It also includes a reverse shell feature to allow the tester to trigger anomalous and known-bad alerts commonly seen in real-world breaches.
 
+```
+NOTE: This project does allow unauthenticated access to a shell on the host / network it is running on. It also serves html direct from the filesystem with a very barebones nodejs based http server. It is highly recommended to only allow access to it from controlled IP ranges. Use at your own risk, no warranties or liability is assumed
+```
+##### Baselining
+When run as a container, the app will make outbound connections to two public facing anonymous APIs (the baseline activity). These APIs are:  
+  - The Hacker News "new stories" feed
+  - The Cat Facts "random cat fact" API
+  
+##### Reverse Shell
+After 3 hours of running / baselining, a reverse shell is enabled, which allows the tester to run any shell command as the user who owns the parent process. Examples of the types of tests one can run are:  
+  - curl a known bad host such as https://donate.v2.xmrig.com  
+  - nmap the local subnet   
+  - Downloading and running crypto miners.  
+  - Opening a true reverse shell with nc. 
 
+##### How to Run on an EC2
+  - Install npm and nodejs with apt-get or yum
+```bash
+git clone https://github.com/lacework-community/reverse-shell-simulation-app.git reverse-shell-simulation-app
+cd reverse-shell-simulation-app/app
+node server.js &
+disown
+```
+At this point you can access the app from http://<public_ip>:8080/ntg-frontend.html  
+  
+##### Source
+https://github.com/lacework-community/reverse-shell-simulation-app
+  
+  
+  
