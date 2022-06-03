@@ -27,10 +27,13 @@ This example pulls data down some random endpoints and then attempts to post it 
   
 ##### Prerequisites
   - AWS EC2 Linux with Lacework Agent
-  - Golang (ag. apt install golang)
+  - Golang 
   
 ##### Usage
 ```bash
+apt install golang
+  
+  
 cd GoExfil
 go build
 go run BasicExfil.go
