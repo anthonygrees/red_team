@@ -17,7 +17,23 @@ This script performs AWS CLI commands to simulate offensive security actions:
 Arguments: newusername awsprofile. 
   
 ```bash 
-cd aws_lateral_movement
+cd aws_account_exploit
 sh ./aws-lateral-movement.sh baduser default
 ```
   
+### 2. Exfiltration Simulation
+  
+This example pulls data down some random endpoints and then attempts to post it to pastebin. The script does not do anything inherently malicious but is the type of activity indicating data exfiltration.  
+  
+##### Prerequisites
+  - AWS EC2 Linux with Lacework Agent
+  - Golang (ag. apt install golang)
+  
+##### Usage
+```bash
+cd GoExfil
+go build
+go run BasicExfil.go
+```
+  
+
