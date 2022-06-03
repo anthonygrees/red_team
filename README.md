@@ -102,7 +102,9 @@ After 3 hours of running / baselining, a reverse shell is enabled, which allows 
 ##### How to Run on an EC2
   - Install npm and nodejs with apt-get or yum
 ```bash
+## Clone the repo
 git clone https://github.com/lacework-community/reverse-shell-simulation-app.git reverse-shell-simulation-app
+
 cd reverse-shell-simulation-app/app
 node server.js &
 disown
