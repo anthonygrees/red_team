@@ -1,6 +1,7 @@
 # Red Team Examples
 Red team examples and sample code.  
   
+### About Red Teaming
 The purpose of red team testing is to validate the state of an environment by simulating an attack. Red team tests are performed by a group of security professionals.  
   
 Red teams are responsible for testing the organization's detection and response capabilities by attempting to gain access to systems or data covertly.   
