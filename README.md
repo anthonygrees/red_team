@@ -1,13 +1,15 @@
 # Red Team Examples
 Red team examples and sample code.  
   
-The purpose of red team testing is to validate the state of an environment by simulating an attack. Red team tests are performed by a group of security professionals. These can be:  
-  - internal dedicated teams
-  - internal security teams
-  - external paid entities
-  - internal resources from engineering or DevOps who like to tinker!  
+The purpose of red team testing is to validate the state of an environment by simulating an attack. Red team tests are performed by a group of security professionals.  
   
-These examples are simple to run but display behaviours that will test the validity of security systems.  
+Red teams are responsible for testing the organization's detection and response capabilities by attempting to gain access to systems or data covertly.   
+  - The team will carry out different attacks, with the flexibility to use different techniques (phishing/spearphishing, exploiting vulnerabilities in software, social engineering, etc.).   
+  - The end goal of the red team is to get as much access/data as possible without being detected.   
+  - At the end of the engagement, the red team delivers a report of actions taken by their team.  
+  - The red team and blue team (which is the internal security team that is responsible for defending against the red team/attackers) compare notes on what was/wasn’t detected, allowing the security team to understand and correct gaps in coverage/detections.  
+    
+These examples are simple to run but display behaviours that will test the validity of security systems.   
   
 ### 1. AWS Account Exploit  
   
