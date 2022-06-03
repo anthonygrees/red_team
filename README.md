@@ -1,6 +1,14 @@
 # Red Team Examples
 Red team examples and sample code.  
   
+The purpose of red team testing is to validate the state of an environment by simulating an attack. Red team tests are performed by a group of security professionals. These can be:  
+  - internal dedicated teams
+  - internal security teams
+  - external paid entities
+  - internal resources from engineering or DevOps who like to tinker!  
+  
+These examples are simple to run but display behaviours that will test the validity of security systems.  
+  
 ### 1. AWS Account Exploit  
   
 This script performs AWS CLI commands to simulate offensive security actions:   
